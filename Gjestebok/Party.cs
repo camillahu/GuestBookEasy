@@ -9,7 +9,7 @@ namespace Gjestebok
     internal class Party
     {
         public string ReservationName { get; private set; }
-        private List<Guest> Guests { get; set; }
+        private List<Guest> Guests { get; set; } = [];
 
         public Party(string resName)
         {

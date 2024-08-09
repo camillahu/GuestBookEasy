@@ -9,7 +9,7 @@ namespace Gjestebok
 {
     internal class Book
     {
-        public List<Party> parties { get; set; }
+        public List<Party> parties { get; set; } = [];
         public string DateString { get; set; }
 
         public Book(string date)
@@ -24,6 +24,7 @@ namespace Gjestebok
 
         public void FindParty()
         {
+            Console.Write("Type your name search here:");
             string name = GetUINameSearch();
 
             var match = parties.Where(party => party.ReservationName.Split(' ').Any(part => part.StartsWith(name, StringComparison.OrdinalIgnoreCase)));
@@ -40,9 +41,17 @@ namespace Gjestebok
 
         public void PrintBookList()
         {
-            foreach (Party m in parties)
+            foreach (Party p in parties)
             {
-                m.PrintNameAndGuestNum();
+                p.PrintNameAndGuestNum();
+            }
+        }
+
+        public void PrintDetailedBookList()
+        {
+            foreach (Party p in parties)
+            {
+                p.PrintAllGuests();
             }
         }
     }
