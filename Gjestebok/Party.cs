@@ -23,7 +23,7 @@ namespace Gjestebok
 
         public void PrintNameAndGuestNum()
         {
-            Console.WriteLine($"Name: {ReservationName} \n Number of guests: {GetPartySize()}");
+            $"Name: {ReservationName} \n Number of guests: {GetPartySize()}".PrintStringToConsole();
         }
 
         public void AddGuest(Guest newGuest)
@@ -33,10 +33,10 @@ namespace Gjestebok
 
         public void PrintAllGuests()
         {
-            Console.WriteLine($"Reservation name: {ReservationName}");
+            $"Reservation name: {ReservationName}".PrintStringToConsole();
             foreach (Guest guest in Guests)
             {
-                Console.WriteLine(guest.PrintName());
+                guest.GetName().PrintStringToConsole();
             }
         }
     }

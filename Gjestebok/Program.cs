@@ -1,31 +1,28 @@
 ﻿
 using Gjestebok;
 
-
 Book currentBook = new Book(DateTime.Now.ToString("dd/MM/YYY"));
 bool mainMenuRunning = true; 
 
 MainMenu();
 void MainMenu()
 {
-    Console.WriteLine($"Welcome to today's book ({currentBook.DateString})");
+    $"Welcome to today's book ({currentBook.DateString})".PrintStringToConsole();
 
     while (mainMenuRunning)
     {
-        Console.WriteLine();
-        Console.WriteLine("Choose an option:");
-        Console.WriteLine("1. Add new party \n2. Search for party \n3. See all parties \n4. See all parties with names");
+        "".PrintStringToConsole();
         mainMenuRunning = false;
         ChooseOption();
-        Console.WriteLine();
+        "".PrintStringToConsole();
     }
-    
 }
 
 void ChooseOption()
 {
-    string menuChoice = Console.ReadLine();
-
+    
+    "1. Add new party \n2. Search for party \n3. See all parties \n4. See all parties with names".PrintStringToConsole();
+    string menuChoice = "Choose an option:".RequestUIString();
     switch (menuChoice)
     {
         case "1":
@@ -49,9 +46,8 @@ void ChooseOption()
 
 Party AddNewPartyUI()
 {
-    
-    Console.WriteLine("Type in the full name of the person Responsible for the party.");
-    string resName = Console.ReadLine();
+    "Type in the name of the person Responsible for the party.".PrintStringToConsole();
+    string resName = "Full Name:".RequestUIString();
     Party newParty = new Party(resName);
     bool adding = AddingGuestsUIChoice();
 
@@ -60,21 +56,19 @@ Party AddNewPartyUI()
         newParty.AddGuest(AddNewGuestUI());
         adding = AddingGuestsUIChoice();
     }
-    return newParty;
+    return newParty;  //Denne er bugga nå, jobb her neste gang! 
 };
 
 Guest AddNewGuestUI()
 {
-    Console.Write("Full name:");
-    string name = Console.ReadLine();
+    string name = "Full name:".RequestUIString();
     Guest newGuest = new Guest(name);
     return newGuest;
 }
 
 bool AddingGuestsUIChoice()
 {
-    Console.WriteLine("Type 1 to add new guest, type anything else to quit making party.");
-    string answer = Console.ReadLine();
+    string answer = "Type 1 to add new guest, type anything else to quit making party: ".RequestUIString();
 
     return answer == "1";
 }

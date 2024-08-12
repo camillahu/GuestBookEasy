@@ -15,7 +15,7 @@ namespace Gjestebok
             Name = name;
         }
 
-        public string PrintName()
+        public string GetName()
         {
             return Name;
         }

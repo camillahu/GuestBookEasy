@@ -24,7 +24,7 @@ namespace Gjestebok
 
         public void FindParty()
         {
-            Console.Write("Type your name search here:");
+            "Type your name search here:".PrintStringToConsole();
             string name = GetUINameSearch();
 
             var match = parties.Where(party => party.ReservationName.Split(' ').Any(part => part.StartsWith(name, StringComparison.OrdinalIgnoreCase)));
@@ -36,7 +36,7 @@ namespace Gjestebok
 
         public string GetUINameSearch()
         {
-            return Console.ReadLine();
+            return System.Console.ReadLine();
         }
 
         public void PrintBookList()
