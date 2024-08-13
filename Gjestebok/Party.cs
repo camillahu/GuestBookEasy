@@ -23,6 +23,7 @@ namespace Gjestebok
 
         public void PrintNameAndGuestNum()
         {
+            "".PrintStringToConsole();
             $"Name: {ReservationName} \n Number of guests: {GetPartySize()}".PrintStringToConsole();
         }
 
@@ -33,6 +34,7 @@ namespace Gjestebok
 
         public void PrintAllGuests()
         {
+            "".PrintStringToConsole();
             $"Reservation name: {ReservationName}".PrintStringToConsole();
             foreach (Guest guest in Guests)
             {

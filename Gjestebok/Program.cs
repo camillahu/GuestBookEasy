@@ -56,7 +56,7 @@ Party AddNewPartyUI()
         newParty.AddGuest(AddNewGuestUI());
         adding = AddingGuestsUIChoice();
     }
-    return newParty;  //Denne er bugga nå, jobb her neste gang! 
+    return newParty; 
 };
 
 Guest AddNewGuestUI()
